@@ -4,106 +4,183 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Imran Shad - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    /* General Styles */
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
+      color: #333;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      overflow-x: hidden;
     }
+
     header {
-      background: #f4f4f4;
-      padding: 20px;
       text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #4facfe, #00f2fe);
+      color: white;
     }
+
     header h1 {
+      font-size: 2.5rem;
       margin: 0;
     }
+
+    header p {
+      margin: 10px 0;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    header a:hover {
+      color: #ffe600;
+    }
+
     section {
-      padding: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
+
     h2 {
-      border-bottom: 2px solid #333;
-      padding-bottom: 5px;
-    }
-    .project {
+      font-size: 2rem;
+      border-bottom: 3px solid #4facfe;
+      padding-bottom: 10px;
       margin-bottom: 20px;
     }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* Projects Section */
+    .projects .project {
+      background: white;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .projects .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .projects h3 a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    .projects h3 a:hover {
+      color: #4facfe;
+    }
+
+    .projects p {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    /* Footer */
     footer {
-      background: #333;
-      color: #fff;
       text-align: center;
-      padding: 10px 0;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+
+    footer a {
+      color: #4facfe;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Muhammad Imran Shad</h1>
-    <p>Senior Software Engineer</p>
-    <p><a href="https://linkedin.com/in/muhammad-imran-shad-98007b125" target="_blank">LinkedIn</a> | <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+    <p>Senior Software Engineer | Innovator | AI Governance Enthusiast</p>
+    <p>
+      <a href="https://linkedin.com/in/muhammad-imran-shad-98007b125" target="_blank">LinkedIn</a> | 
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    </p>
   </header>
 
   <section>
     <h2>About Me</h2>
-    <p>I am a Senior Software Engineer with nearly 7 years of experience in mobile and backend development. My expertise spans JavaScript, TypeScript, React Native, Node.js, and NestJS, with a proven record of building high-quality applications emphasizing performance, scalability, and maintainability.</p>
-    <p>My journey extends beyond coding, delving into AI governance, where I focus on ethical, social, and policy implications of advancing AI systems. I'm enthusiastic about contributing to responsible AI research and innovation.</p>
+    <p>
+      I am a Senior Software Engineer with 7+ years of expertise in building high-quality mobile and backend applications using modern technologies like JavaScript, TypeScript, React Native, Node.js, and NestJS. 
+    </p>
+    <p>
+      Passionate about the ethical and policy implications of AI, I aim to contribute to responsible AI research and governance while delivering impactful tech solutions.
+    </p>
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Programming Languages:</strong> JavaScript, TypeScript, Java</li>
-      <li><strong>Mobile & Frontend:</strong> React Native, Redux, MobX</li>
-      <li><strong>Backend Development:</strong> Node.js, NestJS</li>
-      <li><strong>Testing & QA:</strong> Jest, Cypress, Unit Testing</li>
-      <li><strong>Other Tools:</strong> Git, SVN, Agile, CI/CD</li>
-    </ul>
-  </section>
-
-  <section>
+  <section class="projects">
     <h2>Projects</h2>
+
     <div class="project">
-      <h3><a href="https://play.google.com/store/apps/details?id=com.mygoally.mygoally&hl=en" target="_blank">Goally Parent App</a> | <a href="https://apps.apple.com/pk/app/goally/id1262461227" target="_blank">iOS Version</a></h3>
-      <p>An app designed for neurodiverse families to simplify daily routines and improve family life. Features include customizable routines, reminders, sleep aids, and progress tracking for caregivers.</p>
+      <h3><a href="https://play.google.com/store/apps/details?id=com.mygoally.mygoally&hl=en" target="_blank">Goally Parent App</a> | <a href="https://apps.apple.com/pk/app/goally/id1262461227" target="_blank">iOS</a></h3>
+      <p>Helping neurodiverse families with routines, reminders, and progress tracking to make daily life easier.</p>
     </div>
+
     <div class="project">
-      <h3><a href="https://play.google.com/store/apps/details?id=com.pynwheel.selftour" target="_blank">Pynwheel Tour</a> | <a href="https://apps.apple.com/pk/app/pynwheel-tour/id1488907392" target="_blank">iOS Version</a></h3>
-      <p>A self-guided touring app for apartment rental properties. Users get interactive property maps, step-by-step directions, and tools to take notes and photos during their tours.</p>
+      <h3><a href="https://play.google.com/store/apps/details?id=com.pynwheel.selftour" target="_blank">Pynwheel Tour</a> | <a href="https://apps.apple.com/pk/app/pynwheel-tour/id1488907392" target="_blank">iOS</a></h3>
+      <p>A self-guided apartment touring app with interactive maps and note-taking tools for prospective tenants.</p>
     </div>
+
     <div class="project">
-      <h3><a href="https://play.google.com/store/apps/details?id=com.pynwheel.touch&hl=en" target="_blank">Pynwheel Touch</a> | <a href="https://apps.apple.com/pk/app/pynwheel-touch/id876032030" target="_blank">iOS Version</a></h3>
-      <p>A mobile app for apartment communities to showcase properties with interactive maps, photos, and floor plans. Complements large touchscreen displays in leasing offices.</p>
+      <h3><a href="https://play.google.com/store/apps/details?id=com.pynwheel.touch&hl=en" target="_blank">Pynwheel Touch</a> | <a href="https://apps.apple.com/pk/app/pynwheel-touch/id876032030" target="_blank">iOS</a></h3>
+      <p>An interactive mobile platform for apartment communities, showcasing properties with maps and floor plans.</p>
     </div>
+
     <div class="project">
-      <h3><a href="https://play.google.com/store/apps/details?id=com.drtechpk.amal&hl=en" target="_blank">Amal</a> | <a href="https://apps.apple.com/pk/app/amal-for-life/id1442826238" target="_blank">iOS Version</a></h3>
-      <p>A sustainability-focused app promoting zero waste through the 6 R's: Refuse, Reduce, Reuse, Repair, Recycle, and Rot. Encourages conscious habits to create environmental impact.</p>
+      <h3><a href="https://play.google.com/store/apps/details?id=com.drtechpk.amal&hl=en" target="_blank">Amal</a> | <a href="https://apps.apple.com/pk/app/amal-for-life/id1442826238" target="_blank">iOS</a></h3>
+      <p>A sustainability app encouraging zero waste through conscious habits and the 6 R's: Refuse, Reduce, Reuse, Repair, Recycle, Rot.</p>
     </div>
+
     <div class="project">
       <h3><a href="https://apps.apple.com/pk/app/faithjourney/id1544431979" target="_blank">Faith Journey</a></h3>
-      <p>A tool for Christian parents, schools, and churches to document and reflect on a child's spiritual growth. Helps families cherish "Faith Footprints" like photos and videos securely in an album.</p>
+      <p>A secure app for documenting and reflecting on children's spiritual growth through "Faith Footprints."</p>
     </div>
   </section>
 
   <section>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Master of Computer Science (MCS)</strong> – Virtual University of Pakistan (2014 – 2017)</li>
-      <li><strong>Bachelor’s Degree</strong> – The Punjab University (2012 – 2014)</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Interests</h2>
-    <ul>
-      <li>AI Governance: Exploring frameworks and ethical implications of AI.</li>
-      <li>Blockchain: Investigating its role in enhancing AI transparency and trust.</li>
-      <li>Community Engagement: Writing blogs, hosting tutorials, and participating in AI ethics forums.</li>
-    </ul>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:imran.shad@ymail.com">imran.shad@ymail.com</a></p>
+    <p>Phone: +92 313 3874545</p>
   </section>
 
   <footer>
-    <p>Get in Touch: <a href="mailto:imran.shad@ymail.com">imran.shad@ymail.com</a> | Phone: +92 313 3874545</p>
+    <p>&copy; 2025 Muhammad Imran Shad | <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
   </footer>
 </body>
 </html>
