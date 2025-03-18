@@ -2,163 +2,297 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Portfolio of Muhammad Imran Shad, Senior React Native Engineer.">
+  <meta name="keywords" content="React Native, JavaScript, TypeScript, Mobile Development, iOS, Android">
+  <meta name="author" content="Muhammad Imran Shad">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Imran Shad - Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Muhammad Imran Shad - Senior React Native Engineer</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <!-- Google Fonts (optional) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  >
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f9fc;
       margin: 0;
+      color: #333;
     }
-    header {
-      background: linear-gradient(90deg, #007bff, #6610f2);
-      color: white;
+
+    /* Header / Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #4c6ef5 0%, #7950f2 100%);
+      color: #fff;
+      padding: 80px 20px;
       text-align: center;
-      padding: 40px 20px;
     }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
     }
-    header p {
+    .hero p {
       font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
     }
-    header a {
-      color: white;
-      text-decoration: underline;
+    .hero .btn-hero {
+      margin: 5px;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-weight: 500;
     }
-    section {
-      padding: 40px 20px;
+
+    /* Section Title */
+    .section-title {
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #495057;
+      border-bottom: 3px solid #7950f2;
+      display: inline-block;
+      padding-bottom: 5px;
     }
+
+    /* Card Hover Effect */
     .project-card {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
+
+    /* Footer */
     footer {
       background-color: #343a40;
-      color: white;
+      color: #fff;
       text-align: center;
-      padding: 20px 0;
+      padding: 30px 0;
+      margin-top: 40px;
     }
     footer a {
-      color: #ffc107;
+      color: #ffce41;
       text-decoration: none;
     }
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Responsive Adjustments */
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>Muhammad Imran Shad</h1>
-    <p>Senior Software Engineer | Innovator | AI Governance Enthusiast</p>
-    <p>
-      <a href="https://linkedin.com/in/muhammad-imran-shad-98007b125" target="_blank">LinkedIn</a> | 
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+
+  <!-- Hero / Header -->
+  <header class="hero">
+    <h1>Hi, I'm <strong>Muhammad Imran Shad</strong></h1>
+    <p class="mb-4">
+      Senior React Native Engineer with a passion for building innovative, high-performance mobile solutions.
+      <br>
+      Helping users across the globe through impactful, user-centric products.
     </p>
+    <a href="mailto:imran.shad@ymail.com" class="btn btn-light btn-hero">Contact Me</a>
+    <a href="https://linkedin.com/in/muhammad-imran-shad-98007b125" target="_blank" class="btn btn-outline-light btn-hero">LinkedIn</a>
+    <a href="https://github.com/yourusername" target="_blank" class="btn btn-outline-light btn-hero">GitHub</a>
   </header>
 
-  <!-- About Me -->
-  <section class="container">
-    <h2>About Me</h2>
-    <p>
-      I am a Senior Software Engineer with over 7 years of expertise in building high-quality mobile and backend applications. My work focuses on performance, scalability, and maintainability, utilizing cutting-edge technologies like JavaScript, TypeScript, React Native, Node.js, and NestJS.
-    </p>
-    <p>
-      My interests extend into AI governance, emphasizing ethical and policy implications of AI systems. I strive to contribute to responsible AI research while delivering impactful software solutions.
-    </p>
+  <!-- About Me Section -->
+  <section class="container mt-5">
+    <h2 class="section-title">About Me</h2>
+    <div class="row">
+      <div class="col-lg-8">
+        <p>
+          I’m a dedicated React Native engineer with over 7 years of experience developing cross-platform mobile applications for iOS and Android. 
+          My work revolves around crafting pixel-perfect UIs, optimizing performance, and ensuring security best practices to create delightful user experiences.
+        </p>
+        <p>
+          Driven by a passion for continuous learning, I enjoy collaborating on projects that leverage modern technologies like TypeScript, Redux, MobX, and GraphQL. 
+          Whether leading a small team or working closely with designers and data scientists, I value open communication and a user-centric mindset. 
+          I believe that great software is a blend of elegant code, thoughtful design, and genuine empathy for the end-user’s needs.
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <p>
+          <strong>Location:</strong> Lahore, Pakistan <br>
+          <strong>Phone:</strong> <a href="tel:+92-313-3874545">+92 313 3874545</a> <br>
+          <strong>Email:</strong> <a href="mailto:imran.shad@ymail.com">imran.shad@ymail.com</a>
+        </p>
+        <p>
+          Open to Remote and On-Site Opportunities <br>
+          <em>(Willing to relocate or work in remote-first culture)</em>
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- Skills -->
-  <section class="container">
-    <h2>Skills</h2>
+  <!-- Skills Section -->
+  <section class="container mt-5">
+    <h2 class="section-title">Skills</h2>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 mb-3">
+        <h5>Core Expertise</h5>
         <ul>
-          <li><strong>Programming:</strong> JavaScript, TypeScript, Java</li>
-          <li><strong>Mobile & Frontend:</strong> React Native, Redux, MobX</li>
+          <li>React Native (CLI & Expo)</li>
+          <li>Redux, MobX</li>
+          <li>TypeScript, JavaScript</li>
+          <li>iOS & Android Native Modules</li>
         </ul>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mb-3">
+        <h5>Tools & Frameworks</h5>
         <ul>
-          <li><strong>Backend:</strong> Node.js, NestJS</li>
-          <li><strong>Testing:</strong> Jest, Cypress, Unit Testing</li>
+          <li>Node.js (Express, NestJS)</li>
+          <li>GraphQL & REST APIs</li>
+          <li>Firebase, AWS Amplify</li>
+          <li>GitHub Actions, Fastlane (CI/CD)</li>
         </ul>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mb-3">
+        <h5>Best Practices</h5>
         <ul>
-          <li><strong>Tools:</strong> Git, Agile, CI/CD</li>
+          <li>Clean Architecture & SOLID Principles</li>
+          <li>Unit Testing (Jest), E2E (Detox)</li>
+          <li>Agile / Scrum Methodologies</li>
+          <li>Performance Optimization & Profiling</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section class="container">
-    <h2>Projects</h2>
+  <!-- Projects Section -->
+  <section class="container mt-5">
+    <h2 class="section-title">Projects</h2>
     <div class="row">
+      <!-- Goally Project -->
       <div class="col-md-6 mb-4">
         <div class="card project-card">
           <div class="card-body">
-            <h5 class="card-title">Goally Parent App</h5>
-            <p class="card-text">Helping neurodiverse families with routines, reminders, and progress tracking.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.mygoally.mygoally&hl=en" target="_blank" class="btn btn-primary">View on Android</a>
-            <a href="https://apps.apple.com/pk/app/goally/id1262461227" target="_blank" class="btn btn-secondary">View on iOS</a>
+            <h5 class="card-title">Goally (React Native)</h5>
+            <p class="card-text">
+              A specialized platform helping neurodiverse families establish routines, monitor progress, and enhance day-to-day structure.
+              I led the performance optimization, streamlined state management with Redux, and implemented continuous integration. 
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.mygoally.mygoally" target="_blank" class="btn btn-primary">
+              View on Google Play
+            </a>
+            <a href="https://apps.apple.com/us/app/goally/id1262461227" target="_blank" class="btn btn-secondary">
+              View on App Store
+            </a>
           </div>
         </div>
       </div>
+      <!-- Pynwheel Tour -->
       <div class="col-md-6 mb-4">
         <div class="card project-card">
           <div class="card-body">
             <h5 class="card-title">Pynwheel Tour</h5>
-            <p class="card-text">A self-guided apartment touring app with interactive maps and tools.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.pynwheel.selftour" target="_blank" class="btn btn-primary">View on Android</a>
-            <a href="https://apps.apple.com/pk/app/pynwheel-tour/id1488907392" target="_blank" class="btn btn-secondary">View on iOS</a>
+            <p class="card-text">
+              Self-guided touring app for apartment complexes, featuring interactive maps, offline capabilities, and real-time updates. 
+              Contributed to architecture and UI refinements for a seamless cross-platform experience.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.pynwheel.selftour" target="_blank" class="btn btn-primary">
+              Android
+            </a>
+            <a href="https://apps.apple.com/pk/app/pynwheel-tour/id1488907392" target="_blank" class="btn btn-secondary">
+              iOS
+            </a>
           </div>
         </div>
       </div>
+      <!-- Pynwheel Touch -->
       <div class="col-md-6 mb-4">
         <div class="card project-card">
           <div class="card-body">
             <h5 class="card-title">Pynwheel Touch</h5>
-            <p class="card-text">An app for apartment communities to showcase properties interactively.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.pynwheel.touch&hl=en" target="_blank" class="btn btn-primary">View on Android</a>
-            <a href="https://apps.apple.com/pk/app/pynwheel-touch/id876032030" target="_blank" class="btn btn-secondary">View on iOS</a>
+            <p class="card-text">
+              Interactive property showcasing tool for leasing offices. 
+              Implemented bridging for native modules to access device features, ensuring both performance and a sleek user interface.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.pynwheel.touch&hl=en" target="_blank" class="btn btn-primary">
+              Android
+            </a>
+            <a href="https://apps.apple.com/pk/app/pynwheel-touch/id876032030" target="_blank" class="btn btn-secondary">
+              iOS
+            </a>
           </div>
         </div>
       </div>
+      <!-- FaithJourney -->
       <div class="col-md-6 mb-4">
         <div class="card project-card">
           <div class="card-body">
-            <h5 class="card-title">Amal</h5>
-            <p class="card-text">A sustainability app promoting zero waste through conscious habits.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.drtechpk.amal&hl=en" target="_blank" class="btn btn-primary">View on Android</a>
-            <a href="https://apps.apple.com/pk/app/amal-for-life/id1442826238" target="_blank" class="btn btn-secondary">View on iOS</a>
+            <h5 class="card-title">FaithJourney</h5>
+            <p class="card-text">
+              Daily inspirational and guidance app designed to foster consistent engagement. 
+              Focused on code reliability, push notifications, and event tracking to personalize content for each user.
+            </p>
+            <a href="https://apps.apple.com/pk/app/faithjourney/id1544431979" target="_blank" class="btn btn-secondary">
+              iOS
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="container">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:imran.shad@ymail.com">imran.shad@ymail.com</a></p>
-    <p>Phone: +92 313 3874545</p>
+  <!-- Experience Section (Optional) -->
+  <section class="container mt-5">
+    <h2 class="section-title">Experience</h2>
+    <ul>
+      <li>
+        <strong>Senior Software Engineer at Goally</strong> (06/2023 – Present)  
+        Orchestrated cross-functional teams, optimized app performance, and reduced crashes via refactored logic.
+      </li>
+      <li class="mt-2">
+        <strong>Senior Software Engineer at Intagleo Systems</strong> (09/2020 – 06/2023)  
+        Led a four-developer team in building complex apps, achieving a 40% load time reduction.
+      </li>
+      <li class="mt-2">
+        <strong>Software Engineer at Tatbeeq Soft</strong> (03/2020 – 09/2020)  
+        Mentored junior engineers, enforced coding standards, and executed best practices for app scalability.
+      </li>
+      <li class="mt-2">
+        <strong>Software Engineer at Instant Technologies</strong> (12/2018 – 03/2020)  
+        Developed robust apps using React Native, integrated third-party services, and refined user-centric features.
+      </li>
+      <li class="mt-2">
+        <strong>Software Engineer at Dr Tech</strong> (05/2017 – 12/2018)  
+        Focused on building high-quality mobile solutions, improving code reliability with Redux and thorough testing.
+      </li>
+    </ul>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Muhammad Imran Shad | <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+    <p class="mb-0">
+      &copy; 2025 <strong>Muhammad Imran Shad</strong> | 
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
+      <a href="https://linkedin.com/in/muhammad-imran-shad-98007b125" target="_blank">LinkedIn</a>
+    </p>
+    <p class="mb-0">
+      <small>Elevating mobile experiences, one React Native project at a time.</small>
+    </p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS Bundle (Optional if you need interactive components) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
 </body>
 </html>
