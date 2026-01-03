@@ -1,65 +1,58 @@
-# Muhammad Imran Shad
+# Muhammad Imran Shad 👋
 
-**Senior Software Engineer**  
-**Q Block Model Town, Lahore, Pakistan**  
-**[LinkedIn](https://linkedin.com/in/muhammad-imran-shad-98007b125)**  
-**[GitHub](https://github.com/yourusername)**  
+**Senior Mobile Engineer (React Native / TypeScript) — iOS & Android**
 
----
-
-## About Me
-
-I am a **Senior Software Engineer** with nearly 7 years of experience in mobile and backend development. My expertise spans **JavaScript**, **TypeScript**, **React Native**, **Node.js**, and **NestJS**, where I have a proven record of building high-quality applications that emphasize performance, scalability, and maintainability.
-
-My journey extends beyond coding, delving into **AI governance**, where I focus on ethical, social, and policy implications of advancing AI systems. I'm enthusiastic about contributing to responsible AI research and innovation.
+📍 Lahore, Pakistan • ✉️ imran.shad@ymail.com • 📞 +92 313 387 4545  
+🌐 imranshad.github.io • LinkedIn: linkedin.com/in/imranshad
 
 ---
 
-## Skills
+## What I build
 
-**Programming Languages:** JavaScript, TypeScript, Java  
-**Mobile & Frontend:** React Native, Redux, MobX  
-**Backend Development:** Node.js, NestJS  
-**Testing & QA:** Jest, Cypress, Unit Testing  
-**Other Tools:** Git, SVN, Agile, CI/CD
+I build **mobile products with polished onboarding, smooth performance, and reliable integrations**.
 
----
-
-## Projects
-
-### [Goally Parent App](https://play.google.com/store/apps/details?id=com.mygoally.mygoally&hl=en) | [iOS Version](https://apps.apple.com/pk/app/goally/id1262461227)  
-An app designed for neurodiverse families to simplify daily routines and improve family life. Features include customizable routines, reminders, sleep aids, and progress tracking for caregivers.
-
-### [Pynwheel Tour](https://play.google.com/store/apps/details?id=com.pynwheel.selftour) | [iOS Version](https://apps.apple.com/pk/app/pynwheel-tour/id1488907392)  
-A self-guided touring app for apartment rental properties. Users get interactive property maps, step-by-step directions, and tools to take notes and photos during their tours.
-
-### [Pynwheel Touch](https://play.google.com/store/apps/details?id=com.pynwheel.touch&hl=en) | [iOS Version](https://apps.apple.com/pk/app/pynwheel-touch/id876032030)  
-A mobile app for apartment communities to showcase properties with interactive maps, photos, and floor plans. Complements large touchscreen displays in leasing offices.
-
-### [Amal](https://play.google.com/store/apps/details?id=com.drtechpk.amal&hl=en) | [iOS Version](https://apps.apple.com/pk/app/amal-for-life/id1442826238)  
-A sustainability-focused app promoting zero waste through the 6 R's: Refuse, Reduce, Reuse, Repair, Recycle, and Rot. Encourages conscious habits to create environmental impact.
-
-### [Faith Journey](https://apps.apple.com/pk/app/faithjourney/id1544431979)  
-A tool for Christian parents, schools, and churches to document and reflect on a child's spiritual growth. Helps families cherish "Faith Footprints" like photos and videos securely in an album.
+- **Onboarding & growth flows:** multi-step UX, deep linking, recovery/error states, analytics instrumentation  
+- **Performance:** profiling, startup/TTI improvements, rendering + memory tuning  
+- **Native iOS/Android:** integrating SDKs and platform features (Swift/Obj-C, Kotlin/Java)  
+- **Quality & delivery:** code reviews, documentation, CI/CD, testing
 
 ---
 
-## Education
+## iOS toolbox
 
-**Master of Computer Science (MCS)** – Virtual University of Pakistan (*2014 – 2017*)  
-**Bachelor’s Degree** – The Punjab University (*2012 – 2014*)
-
----
-
-## Interests
-
-- **AI Governance:** Exploring frameworks and ethical implications of AI.
-- **Blockchain:** Investigating its role in enhancing AI transparency and trust.
-- **Community Engagement:** Writing blogs, hosting tutorials, and participating in AI ethics forums.
+- **React Native / Expo**, TypeScript, React Navigation  
+- State: Redux, MobX, Context/Zustand  
+- iOS: Swift / Objective-C, Push Notifications, Deep Linking, In-App Purchases, HealthKit (where applicable)  
+- Tooling: Fastlane, Firebase, Crash reporting, Jest
 
 ---
 
-## Get in Touch
+## Featured apps (public links)
 
-- **Email:** [imran.shad@ymail.com](mailto:imran.shad@ymail.com)  
-- **Phone:** +92 313 3874545  
+> *Note: These are commercial products. Source code is proprietary; this portfolio describes public, non-confidential work.*
+
+- **Goally (Parent App)** — routines + progress tracking + subscriptions  
+  App Store: https://apps.apple.com/pk/app/goally/id1262461227
+- **Pynwheel Self Tour** — location features, secure check-in, push notifications  
+  App Store: https://apps.apple.com/us/app/self-tour/id1488907392
+- **FaithJourney** — content + progress, offline support, UI redesign  
+  App Store: https://apps.apple.com/us/app/faithjourney/id1544431979
+- **Amal** — sustainability app, rewards + community reporting  
+  App Store: https://apps.apple.com/pk/app/amal-for-life/id1442826238
+
+Android:
+- **Pynwheel Touch** — kiosk / large-screen Android app  
+  Google Play: https://play.google.com/store/apps/details?id=com.pynwheel.touch
+
+---
+
+## Case studies (recommended)
+If you want deeper detail, see the case studies in my portfolio repo:
+- `portfolio-repo/case-studies/`
+
+---
+
+## Contact
+If you'd like to chat about iOS/React Native, onboarding architecture, or performance work:
+- **Email:** imran.shad@ymail.com
+- **LinkedIn:** linkedin.com/in/imranshad
