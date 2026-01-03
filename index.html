@@ -1,298 +1,557 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Portfolio of Muhammad Imran Shad, Senior React Native Engineer.">
-  <meta name="keywords" content="React Native, JavaScript, TypeScript, Mobile Development, iOS, Android">
-  <meta name="author" content="Muhammad Imran Shad">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Imran Shad - Senior React Native Engineer</title>
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-  <!-- Google Fonts (optional) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-    rel="stylesheet"
-  >
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f17" />
+  <title>Muhammad Imran Shad — iOS & React Native Engineer</title>
+  <meta name="description" content="Senior Mobile Engineer (React Native/TypeScript) with iOS & Android experience. Portfolio of shipped apps, onboarding & performance work, and native integrations." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Muhammad Imran Shad — iOS & React Native Engineer" />
+  <meta property="og:description" content="Shipped mobile apps • Onboarding & performance • Native iOS/Android integrations." />
+  <meta property="og:type" content="website" />
+
+  <!-- Optional: set after publishing (GitHub Pages) -->
+  <!-- <link rel="canonical" href="https://imranshad.github.io/" /> -->
+
   <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f7f9fc;
-      margin: 0;
-      color: #333;
+    /* Single-file HTML + CSS + JS (no frameworks) — GitHub Pages friendly */
+    :root{
+      --bg: #0b0f17;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.04);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --faint: rgba(255,255,255,.55);
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 10px 40px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 1100px;
+      --ring: 0 0 0 3px rgba(255,255,255,.18);
+    }
+    [data-theme="light"]{
+      --bg: #f6f7fb;
+      --panel: rgba(15,23,42,.06);
+      --panel2: rgba(15,23,42,.04);
+      --text: rgba(15,23,42,.92);
+      --muted: rgba(15,23,42,.74);
+      --faint: rgba(15,23,42,.58);
+      --border: rgba(15,23,42,.12);
+      --shadow: 0 10px 40px rgba(15,23,42,.14);
+      --ring: 0 0 0 3px rgba(15,23,42,.12);
     }
 
-    /* Header / Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #4c6ef5 0%, #7950f2 100%);
-      color: #fff;
-      padding: 80px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,.08), transparent 55%),
+                  radial-gradient(1200px 700px at 70% 20%, rgba(255,255,255,.06), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      font-weight: 700;
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding: 26px 18px 70px}
+    .skip{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 20px;
-    }
-    .hero .btn-hero {
-      margin: 5px;
-      border-radius: 30px;
-      padding: 10px 20px;
-      font-weight: 500;
+    .skip:focus{
+      left:18px; top:18px; width:auto; height:auto; padding:10px 14px;
+      background:var(--panel); border:1px solid var(--border); border-radius:12px;
+      box-shadow:var(--shadow); z-index:9999;
     }
 
-    /* Section Title */
-    .section-title {
-      margin-bottom: 30px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #495057;
-      border-bottom: 3px solid #7950f2;
-      display: inline-block;
-      padding-bottom: 5px;
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,0));
+      border-bottom: 1px solid transparent;
+    }
+    [data-theme="light"] header{
+      background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{display:flex; flex-direction:column; gap:2px}
+    .brand strong{letter-spacing:.2px}
+    .brand span{font-size:13px; color:var(--muted)}
+    nav{
+      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration:none;
+      transition: transform .08s ease, background .12s ease, border-color .12s ease;
+    }
+    .pill:hover{transform: translateY(-1px); background:var(--panel); text-decoration:none}
+    .pill:focus{outline:none; box-shadow:var(--ring)}
+    .pill.primary{
+      color: var(--text);
+      background: var(--panel);
+      border-color: var(--border);
+      font-weight: 600;
     }
 
-    /* Card Hover Effect */
-    .project-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .hero{
+      padding: 30px 0 18px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items:stretch;
     }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero .left{padding: 22px}
+    .hero h1{margin:0 0 6px; font-size: clamp(28px, 4vw, 40px); line-height:1.1}
+    .kicker{color:var(--muted); font-size: 15px; margin:0 0 12px}
+    .lead{margin:0 0 16px; color:var(--text); font-size: 16px}
+    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .meta{display:grid; gap: 10px; padding: 18px}
+    .stat{
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel2);
+    }
+    .stat strong{display:block; font-size: 16px}
+    .stat span{display:block; color:var(--muted); font-size: 13px; margin-top:3px}
+
+    section{margin-top: 26px}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin: 0 0 10px;
+    }
+    .section-title h2{margin:0; font-size: 18px; letter-spacing:.2px}
+    .section-title p{margin:0; color:var(--muted); font-size: 13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .col-6{grid-column: span 6}
+    .col-12{grid-column: span 12}
+
+    .proj{
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      min-height: 240px;
+    }
+    .proj h3{margin:0; font-size: 16px}
+    .proj .sub{color: var(--muted); font-size: 13px; margin-top: -6px}
+    .proj p{margin:0; color: var(--text); font-size: 14px}
+    ul.clean{margin:0; padding-left: 18px; color: var(--muted); font-size: 14px}
+    ul.clean li{margin: 6px 0}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
+    .tag{
+      font-size: 12px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:auto}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      color: var(--text);
+      font-size: 13px;
+      text-decoration:none;
+      gap:8px;
+    }
+    .btn:hover{background: var(--panel); text-decoration:none}
+    .btn:focus{outline:none; box-shadow:var(--ring)}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
     }
 
-    /* Footer */
-    footer {
-      background-color: #343a40;
-      color: #fff;
-      text-align: center;
-      padding: 30px 0;
-      margin-top: 40px;
-    }
-    footer a {
-      color: #ffce41;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
+    footer{
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    /* Responsive Adjustments */
-    @media (max-width: 576px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
+    @media (max-width: 920px){
+      .hero{grid-template-columns: 1fr; }
+      .col-6{grid-column: span 12}
+      .split{grid-template-columns: 1fr}
+      nav{gap:8px}
+      .pill{padding: 8px 10px}
     }
   </style>
-</head>
-<body>
 
-  <!-- Hero / Header -->
-  <header class="hero">
-    <h1>Hi, I'm <strong>Muhammad Imran Shad</strong></h1>
-    <p class="mb-4">
-      Senior React Native Engineer with a passion for building innovative, high-performance mobile solutions.
-      <br>
-      Helping users across the globe through impactful, user-centric products.
-    </p>
-    <a href="mailto:imran.shad@ymail.com" class="btn btn-light btn-hero">Contact Me</a>
-    <a href="https://linkedin.com/in/muhammad-imran-shad-98007b125" target="_blank" class="btn btn-outline-light btn-hero">LinkedIn</a>
-    <a href="https://github.com/yourusername" target="_blank" class="btn btn-outline-light btn-hero">GitHub</a>
+  <script>
+    (function(){
+      const key = "theme";
+      const saved = localStorage.getItem(key);
+      if(saved){ document.documentElement.setAttribute("data-theme", saved); }
+      else{
+        const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        document.documentElement.setAttribute("data-theme", prefersLight ? "light" : "dark");
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Imran Shad",
+    "jobTitle": "Senior Mobile Engineer",
+    "email": "mailto:imran.shad@ymail.com",
+    "telephone": "+92 313 387 4545",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lahore",
+      "addressCountry": "PK"
+    },
+    "url": "https://imranshad.github.io/",
+    "sameAs": ["https://linkedin.com/in/imranshad"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <strong>Muhammad Imran Shad</strong>
+        <span>iOS & React Native • Onboarding • Performance • Native Integrations</span>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="#contact">Contact</a>
+        <button id="themeBtn" class="pill primary" type="button" aria-label="Toggle theme">Toggle theme</button>
+      </nav>
+    </div>
   </header>
 
-  <!-- About Me Section -->
-  <section class="container mt-5">
-    <h2 class="section-title">About Me</h2>
-    <div class="row">
-      <div class="col-lg-8">
-        <p>
-          I’m a dedicated React Native engineer with over 7 years of experience developing cross-platform mobile applications for iOS and Android. 
-          My work revolves around crafting pixel-perfect UIs, optimizing performance, and ensuring security best practices to create delightful user experiences.
+  <main id="main" class="wrap">
+    <div class="hero">
+      <div class="card left">
+        <h1>Senior Mobile Engineer</h1>
+        <p class="kicker">React Native / TypeScript • iOS (Swift/Obj-C) • Android (Kotlin/Java)</p>
+        <p class="lead">
+          I build high-quality mobile products with <strong>smooth onboarding</strong>, strong <strong>performance</strong>,
+          and pragmatic <strong>native iOS/Android integrations</strong>. My work spans feature delivery, code reviews,
+          testing, CI/CD, and release management.
         </p>
-        <p>
-          Driven by a passion for continuous learning, I enjoy collaborating on projects that leverage modern technologies like TypeScript, Redux, MobX, and GraphQL. 
-          Whether leading a small team or working closely with designers and data scientists, I value open communication and a user-centric mindset. 
-          I believe that great software is a blend of elegant code, thoughtful design, and genuine empathy for the end-user’s needs.
-        </p>
-      </div>
-      <div class="col-lg-4">
-        <p>
-          <strong>Location:</strong> Lahore, Pakistan <br>
-          <strong>Phone:</strong> <a href="tel:+92-313-3874545">+92 313 3874545</a> <br>
-          <strong>Email:</strong> <a href="mailto:imran.shad@ymail.com">imran.shad@ymail.com</a>
-        </p>
-        <p>
-          Open to Remote and On-Site Opportunities <br>
-          <em>(Willing to relocate or work in remote-first culture)</em>
+
+        <div class="cta">
+          <a class="pill primary" href="#projects">View projects</a>
+          <a class="pill" href="mailto:imran.shad@ymail.com">Email</a>
+          <a class="pill" href="https://linkedin.com/in/imranshad" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="pill" href="https://imranshad.github.io" target="_blank" rel="noreferrer">Website</a>
+          <!-- Optional: add your resume file in this repo and uncomment -->
+          <!-- <a class="pill" href="./resume.pdf" target="_blank" rel="noreferrer">Download resume</a> -->
+        </div>
+
+        <p style="margin:14px 0 0; color:var(--faint); font-size:13px;">
+          Note: These are commercial products. Source code is proprietary; details here are public and non-confidential.
         </p>
       </div>
+
+      <aside class="card meta" aria-label="Highlights">
+        <div class="stat">
+          <strong>8+ years</strong>
+          <span>Mobile engineering (React Native + native iOS/Android)</span>
+        </div>
+        <div class="stat">
+          <strong>Onboarding & reliability</strong>
+          <span>Multi-step flows, secure syncing, error/recovery handling</span>
+        </div>
+        <div class="stat">
+          <strong>Performance wins</strong>
+          <span>Startup/TTI, bundle size, rendering & crash reduction</span>
+        </div>
+      </aside>
     </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section class="container mt-5">
-    <h2 class="section-title">Skills</h2>
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <h5>Core Expertise</h5>
-        <ul>
-          <li>React Native (CLI & Expo)</li>
-          <li>Redux, MobX</li>
-          <li>TypeScript, JavaScript</li>
-          <li>iOS & Android Native Modules</li>
-        </ul>
+    <section id="projects">
+      <div class="section-title">
+        <h2>Featured projects</h2>
+        <p>Selected apps shipped to the App Store / Play Store</p>
       </div>
-      <div class="col-md-4 mb-3">
-        <h5>Tools & Frameworks</h5>
-        <ul>
-          <li>Node.js (Express, NestJS)</li>
-          <li>GraphQL & REST APIs</li>
-          <li>Firebase, AWS Amplify</li>
-          <li>GitHub Actions, Fastlane (CI/CD)</li>
-        </ul>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>Best Practices</h5>
-        <ul>
-          <li>Clean Architecture & SOLID Principles</li>
-          <li>Unit Testing (Jest), E2E (Detox)</li>
-          <li>Agile / Scrum Methodologies</li>
-          <li>Performance Optimization & Profiling</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <!-- Projects Section -->
-  <section class="container mt-5">
-    <h2 class="section-title">Projects</h2>
-    <div class="row">
-      <!-- Goally Project -->
-      <div class="col-md-6 mb-4">
-        <div class="card project-card">
-          <div class="card-body">
-            <h5 class="card-title">Goally (React Native)</h5>
-            <p class="card-text">
-              A specialized platform helping neurodiverse families establish routines, monitor progress, and enhance day-to-day structure.
-              I led the performance optimization, streamlined state management with Redux, and implemented continuous integration. 
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.mygoally.mygoally" target="_blank" class="btn btn-primary">
-              View on Google Play
-            </a>
-            <a href="https://apps.apple.com/us/app/goally/id1262461227" target="_blank" class="btn btn-secondary">
-              View on App Store
-            </a>
+      <div class="grid">
+        <article class="card proj col-6">
+          <h3>Goally — Parent App</h3>
+          <div class="sub">Jun 2023 – Aug 2025 • iOS/Android</div>
+          <p>Behavioral therapy & routine-building app for parents of children with developmental challenges.</p>
+          <ul class="clean">
+            <li>Custom routines, real-time progress tracking, secure parent-child data syncing</li>
+            <li>In-app subscriptions (IAP)</li>
+            <li>Performance and UI improvements across core flows</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">MobX</span>
+            <span class="tag">React Navigation</span><span class="tag">REST APIs</span><span class="tag">Firebase</span>
+            <span class="tag">In-App Purchases</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://apps.apple.com/pk/app/goally/id1262461227" target="_blank" rel="noreferrer">App Store</a>
+          </div>
+        </article>
+
+        <article class="card proj col-6">
+          <h3>Pynwheel — Self Tour</h3>
+          <div class="sub">Sep 2020 – Jun 2023 • iOS</div>
+          <p>Self-guided apartment tours with location-aware flows and backend integration.</p>
+          <ul class="clean">
+            <li>Location-based features and secure check-in flows</li>
+            <li>Push notifications & deep linking</li>
+            <li>Multimedia content display</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Redux</span>
+            <span class="tag">Geolocation</span><span class="tag">Deep Linking</span><span class="tag">Firebase Messaging</span>
+            <span class="tag">REST APIs</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://apps.apple.com/us/app/self-tour/id1488907392" target="_blank" rel="noreferrer">App Store</a>
+          </div>
+        </article>
+
+        <article class="card proj col-6">
+          <h3>Pynwheel — Touch (Kiosk)</h3>
+          <div class="sub">Sep 2020 – Jun 2023 • Android (large-screen)</div>
+          <p>Touchscreen lobby/kiosk app optimized for large screens and offline kiosk environments.</p>
+          <ul class="clean">
+            <li>Interactive modules, map navigation, brochure displays</li>
+            <li>API-driven property data rendering</li>
+            <li>Offline caching for kiosk usage</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">Context API</span><span class="tag">Redux</span>
+            <span class="tag">Offline Storage</span><span class="tag">Android Large-Screen</span><span class="tag">REST APIs</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.pynwheel.touch" target="_blank" rel="noreferrer">Google Play</a>
+          </div>
+        </article>
+
+        <article class="card proj col-6">
+          <h3>Faith Journey</h3>
+          <div class="sub">Sep 2020 – Jun 2023 • iOS</div>
+          <p>Spiritual growth app with guided content, progress tracking, and daily activities.</p>
+          <ul class="clean">
+            <li>Content rendering and user progress modules</li>
+            <li>Offline support</li>
+            <li>Redesigned UI for better engagement</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">Redux</span><span class="tag">React Navigation</span>
+            <span class="tag">Async Storage</span><span class="tag">REST APIs</span><span class="tag">Firebase</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://apps.apple.com/us/app/faithjourney/id1544431979" target="_blank" rel="noreferrer">App Store</a>
+          </div>
+        </article>
+
+        <article class="card proj col-6">
+          <h3>Amal — For Life</h3>
+          <div class="sub">May 2017 – Dec 2018 • iOS</div>
+          <p>Sustainability app encouraging waste reduction with community actions and rewards.</p>
+          <ul class="clean">
+            <li>Pickup reporting, tree tracking, bin requests, reporting to authorities</li>
+            <li>Rewards with Green Points</li>
+            <li>Notifications + backend integrations</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Redux</span>
+            <span class="tag">Firebase</span><span class="tag">Local Notifications</span><span class="tag">REST APIs</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://apps.apple.com/pk/app/amal-for-life/id1442826238" target="_blank" rel="noreferrer">App Store</a>
+          </div>
+        </article>
+
+        <article class="card proj col-6">
+          <h3>The Long Game (Unpublished)</h3>
+          <div class="sub">Wellness / longevity • iOS & Android</div>
+          <p>Gamified healthspan app turning wearable + lab data into a competitive score.</p>
+          <ul class="clean">
+            <li>Personalized TLG Score, leagues, progress tracking</li>
+            <li>Science-based nudges to improve sleep/recovery</li>
+            <li>HealthKit / Google Fit integrations</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Zustand</span>
+            <span class="tag">HealthKit</span><span class="tag">Google Fit</span>
+            <span class="tag">Firebase</span><span class="tag">Push Notifications</span>
+          </div>
+          <div class="links">
+            <span class="btn" aria-disabled="true" title="Unpublished app">Private build</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Skills</h2>
+        <p>Tooling and areas I work in most</p>
+      </div>
+
+      <div class="grid">
+        <div class="card proj col-6" style="min-height:auto">
+          <h3>Mobile engineering</h3>
+          <ul class="clean">
+            <li>React Native / Expo, TypeScript, React Navigation</li>
+            <li>State: Redux, MobX, Context API, Zustand</li>
+            <li>Offline-first: caching, sync, resilient error handling</li>
+            <li>App Store / Play Store releases, TestFlight</li>
+          </ul>
+        </div>
+
+        <div class="card proj col-6" style="min-height:auto">
+          <h3>Performance & quality</h3>
+          <ul class="clean">
+            <li>Profiling (Flipper/Hermes), startup & TTI improvements</li>
+            <li>Rendering optimization, memoization, bundle size reduction</li>
+            <li>Crash monitoring, logging, metrics</li>
+            <li>Testing: Jest, React Native Testing Library</li>
+          </ul>
+        </div>
+
+        <div class="card proj col-6" style="min-height:auto">
+          <h3>Native & integrations</h3>
+          <ul class="clean">
+            <li>iOS: Swift/Objective-C integration when needed</li>
+            <li>Android: Kotlin/Java + large-screen optimizations</li>
+            <li>SDKs: maps, camera, push notifications, analytics</li>
+            <li>Payments & subscriptions: In-App Purchases</li>
+          </ul>
+        </div>
+
+        <div class="card proj col-6" style="min-height:auto">
+          <h3>Delivery</h3>
+          <ul class="clean">
+            <li>CI/CD: GitHub Actions, Fastlane</li>
+            <li>Agile/Scrum, Jira, Figma collaboration</li>
+            <li>Code reviews, documentation, mentoring</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>Recent roles</p>
+      </div>
+
+      <div class="split">
+        <div class="card proj" style="min-height:auto">
+          <h3>Goally Co. — Senior Mobile Engineer</h3>
+          <div class="sub">Jun 2023 – Present</div>
+          <ul class="clean">
+            <li>Built features and UI for routines & progress tracking</li>
+            <li>Improved onboarding/first-run performance and stability</li>
+            <li>Helped shape engineering practices (reviews, CI checks)</li>
+          </ul>
+        </div>
+
+        <div class="card proj" style="min-height:auto">
+          <h3>Intagleo Systems (Pynwheel) — Senior Mobile Engineer</h3>
+          <div class="sub">Sep 2020 – Jun 2023</div>
+          <ul class="clean">
+            <li>Shipped Self Tour and Touch apps with offline-first patterns</li>
+            <li>Improved performance and accessibility</li>
+            <li>Automated releases with Fastlane + GitHub Actions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Let’s build something great</p>
+      </div>
+
+      <div class="grid">
+        <div class="card proj col-12" style="min-height:auto">
+          <p style="margin:0 0 10px;">
+            <strong>Email:</strong> <a href="mailto:imran.shad@ymail.com">imran.shad@ymail.com</a> •
+            <strong>Phone:</strong> <a href="tel:+923133874545">+92 313 387 4545</a> •
+            <strong>Location:</strong> Lahore, Pakistan
+          </p>
+
+          <div class="links">
+            <a class="btn" href="mailto:imran.shad@ymail.com">Email me</a>
+            <button class="btn" id="copyEmailBtn" type="button">Copy email</button>
+            <a class="btn" href="https://linkedin.com/in/imranshad" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://imranshad.github.io" target="_blank" rel="noreferrer">Website</a>
           </div>
         </div>
       </div>
-      <!-- Pynwheel Tour -->
-      <div class="col-md-6 mb-4">
-        <div class="card project-card">
-          <div class="card-body">
-            <h5 class="card-title">Pynwheel Tour</h5>
-            <p class="card-text">
-              Self-guided touring app for apartment complexes, featuring interactive maps, offline capabilities, and real-time updates. 
-              Contributed to architecture and UI refinements for a seamless cross-platform experience.
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.pynwheel.selftour" target="_blank" class="btn btn-primary">
-              Android
-            </a>
-            <a href="https://apps.apple.com/pk/app/pynwheel-tour/id1488907392" target="_blank" class="btn btn-secondary">
-              iOS
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Pynwheel Touch -->
-      <div class="col-md-6 mb-4">
-        <div class="card project-card">
-          <div class="card-body">
-            <h5 class="card-title">Pynwheel Touch</h5>
-            <p class="card-text">
-              Interactive property showcasing tool for leasing offices. 
-              Implemented bridging for native modules to access device features, ensuring both performance and a sleek user interface.
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.pynwheel.touch&hl=en" target="_blank" class="btn btn-primary">
-              Android
-            </a>
-            <a href="https://apps.apple.com/pk/app/pynwheel-touch/id876032030" target="_blank" class="btn btn-secondary">
-              iOS
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- FaithJourney -->
-      <div class="col-md-6 mb-4">
-        <div class="card project-card">
-          <div class="card-body">
-            <h5 class="card-title">FaithJourney</h5>
-            <p class="card-text">
-              Daily inspirational and guidance app designed to foster consistent engagement. 
-              Focused on code reliability, push notifications, and event tracking to personalize content for each user.
-            </p>
-            <a href="https://apps.apple.com/pk/app/faithjourney/id1544431979" target="_blank" class="btn btn-secondary">
-              iOS
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Experience Section (Optional) -->
-  <section class="container mt-5">
-    <h2 class="section-title">Experience</h2>
-    <ul>
-      <li>
-        <strong>Senior Software Engineer at Goally</strong> (06/2023 – Present)  
-        Orchestrated cross-functional teams, optimized app performance, and reduced crashes via refactored logic.
-      </li>
-      <li class="mt-2">
-        <strong>Senior Software Engineer at Intagleo Systems</strong> (09/2020 – 06/2023)  
-        Led a four-developer team in building complex apps, achieving a 40% load time reduction.
-      </li>
-      <li class="mt-2">
-        <strong>Software Engineer at Tatbeeq Soft</strong> (03/2020 – 09/2020)  
-        Mentored junior engineers, enforced coding standards, and executed best practices for app scalability.
-      </li>
-      <li class="mt-2">
-        <strong>Software Engineer at Instant Technologies</strong> (12/2018 – 03/2020)  
-        Developed robust apps using React Native, integrated third-party services, and refined user-centric features.
-      </li>
-      <li class="mt-2">
-        <strong>Software Engineer at Dr Tech</strong> (05/2017 – 12/2018)  
-        Focused on building high-quality mobile solutions, improving code reliability with Redux and thorough testing.
-      </li>
-    </ul>
-  </section>
+    <footer>
+      <div>© <span id="year"></span> Muhammad Imran Shad • Built as a single-file static site for GitHub Pages.</div>
+    </footer>
+  </main>
 
-  <!-- Footer -->
-  <footer>
-    <p class="mb-0">
-      &copy; 2025 <strong>Muhammad Imran Shad</strong> | 
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
-      <a href="https://linkedin.com/in/muhammad-imran-shad-98007b125" target="_blank">LinkedIn</a>
-    </p>
-    <p class="mb-0">
-      <small>Elevating mobile experiences, one React Native project at a time.</small>
-    </p>
-  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <!-- Bootstrap JS Bundle (Optional if you need interactive components) -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-  ></script>
+    document.getElementById("themeBtn").addEventListener("click", function(){
+      const root = document.documentElement;
+      const current = root.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+
+    document.getElementById("copyEmailBtn").addEventListener("click", async function(){
+      const email = "imran.shad@ymail.com";
+      try{
+        await navigator.clipboard.writeText(email);
+        const old = this.textContent;
+        this.textContent = "Copied ✓";
+        setTimeout(()=>this.textContent = old, 1200);
+      }catch(e){
+        prompt("Copy email:", email);
+      }
+    });
+  </script>
 </body>
 </html>
