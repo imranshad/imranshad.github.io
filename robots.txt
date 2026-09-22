@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://imranshad.github.io/sitemap.xml
