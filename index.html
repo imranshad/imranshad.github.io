@@ -1,557 +1,691 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f17" />
-  <title>Muhammad Imran Shad — iOS & React Native Engineer</title>
-  <meta name="description" content="Senior Mobile Engineer (React Native/TypeScript) with iOS & Android experience. Portfolio of shipped apps, onboarding & performance work, and native integrations." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Muhammad Imran Shad — iOS & React Native Engineer" />
-  <meta property="og:description" content="Shipped mobile apps • Onboarding & performance • Native iOS/Android integrations." />
-  <meta property="og:type" content="website" />
-
-  <!-- Optional: set after publishing (GitHub Pages) -->
-  <!-- <link rel="canonical" href="https://imranshad.github.io/" /> -->
-
-  <style>
-    /* Single-file HTML + CSS + JS (no frameworks) — GitHub Pages friendly */
-    :root{
-      --bg: #0b0f17;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.04);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --faint: rgba(255,255,255,.55);
-      --border: rgba(255,255,255,.12);
-      --shadow: 0 10px 40px rgba(0,0,0,.35);
-      --radius: 16px;
-      --max: 1100px;
-      --ring: 0 0 0 3px rgba(255,255,255,.18);
-    }
-    [data-theme="light"]{
-      --bg: #f6f7fb;
-      --panel: rgba(15,23,42,.06);
-      --panel2: rgba(15,23,42,.04);
-      --text: rgba(15,23,42,.92);
-      --muted: rgba(15,23,42,.74);
-      --faint: rgba(15,23,42,.58);
-      --border: rgba(15,23,42,.12);
-      --shadow: 0 10px 40px rgba(15,23,42,.14);
-      --ring: 0 0 0 3px rgba(15,23,42,.12);
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,.08), transparent 55%),
-                  radial-gradient(1200px 700px at 70% 20%, rgba(255,255,255,.06), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
-    a{color:inherit; text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .wrap{max-width:var(--max); margin:0 auto; padding: 26px 18px 70px}
-    .skip{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip:focus{
-      left:18px; top:18px; width:auto; height:auto; padding:10px 14px;
-      background:var(--panel); border:1px solid var(--border); border-radius:12px;
-      box-shadow:var(--shadow); z-index:9999;
-    }
-
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,0));
-      border-bottom: 1px solid transparent;
-    }
-    [data-theme="light"] header{
-      background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));
-    }
-    .nav{
-      max-width:var(--max);
-      margin:0 auto;
-      padding: 14px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-    }
-    .brand{display:flex; flex-direction:column; gap:2px}
-    .brand strong{letter-spacing:.2px}
-    .brand span{font-size:13px; color:var(--muted)}
-    nav{
-      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      background: var(--panel2);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 13px;
-      text-decoration:none;
-      transition: transform .08s ease, background .12s ease, border-color .12s ease;
-    }
-    .pill:hover{transform: translateY(-1px); background:var(--panel); text-decoration:none}
-    .pill:focus{outline:none; box-shadow:var(--ring)}
-    .pill.primary{
-      color: var(--text);
-      background: var(--panel);
-      border-color: var(--border);
-      font-weight: 600;
-    }
-
-    .hero{
-      padding: 30px 0 18px;
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items:stretch;
-    }
-    .card{
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero .left{padding: 22px}
-    .hero h1{margin:0 0 6px; font-size: clamp(28px, 4vw, 40px); line-height:1.1}
-    .kicker{color:var(--muted); font-size: 15px; margin:0 0 12px}
-    .lead{margin:0 0 16px; color:var(--text); font-size: 16px}
-    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .meta{display:grid; gap: 10px; padding: 18px}
-    .stat{
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--panel2);
-    }
-    .stat strong{display:block; font-size: 16px}
-    .stat span{display:block; color:var(--muted); font-size: 13px; margin-top:3px}
-
-    section{margin-top: 26px}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin: 0 0 10px;
-    }
-    .section-title h2{margin:0; font-size: 18px; letter-spacing:.2px}
-    .section-title p{margin:0; color:var(--muted); font-size: 13px}
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-    }
-    .col-6{grid-column: span 6}
-    .col-12{grid-column: span 12}
-
-    .proj{
-      padding: 16px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height: 240px;
-    }
-    .proj h3{margin:0; font-size: 16px}
-    .proj .sub{color: var(--muted); font-size: 13px; margin-top: -6px}
-    .proj p{margin:0; color: var(--text); font-size: 14px}
-    ul.clean{margin:0; padding-left: 18px; color: var(--muted); font-size: 14px}
-    ul.clean li{margin: 6px 0}
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
-    .tag{
-      font-size: 12px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--panel2);
-      color: var(--muted);
-      white-space:nowrap;
-    }
-    .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:auto}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 9px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--panel2);
-      color: var(--text);
-      font-size: 13px;
-      text-decoration:none;
-      gap:8px;
-    }
-    .btn:hover{background: var(--panel); text-decoration:none}
-    .btn:focus{outline:none; box-shadow:var(--ring)}
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
-
-    footer{
-      margin-top: 30px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    @media (max-width: 920px){
-      .hero{grid-template-columns: 1fr; }
-      .col-6{grid-column: span 12}
-      .split{grid-template-columns: 1fr}
-      nav{gap:8px}
-      .pill{padding: 8px 10px}
-    }
-  </style>
-
-  <script>
-    (function(){
-      const key = "theme";
-      const saved = localStorage.getItem(key);
-      if(saved){ document.documentElement.setAttribute("data-theme", saved); }
-      else{
-        const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-        document.documentElement.setAttribute("data-theme", prefersLight ? "light" : "dark");
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5ef" />
+    <title>
+      Muhammad Imran Shad — Senior React Native &amp; Full-Stack Engineer
+    </title>
+    <meta
+      name="description"
+      content="Senior React Native & Full-Stack Engineer in Lahore with 9+ years of experience. Production iOS/Android apps, Node.js backends, and practical AI integrations."
+    />
+    <link rel="canonical" href="https://imranshad.github.io/" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://imranshad.github.io/" />
+    <meta
+      property="og:title"
+      content="Muhammad Imran Shad — Senior React Native &amp; Full-Stack Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Mobile expertise. Backend ownership. Practical AI integrations. Explore selected work and 9+ years of engineering experience."
+    />
+    <meta
+      property="og:image"
+      content="https://imranshad.github.io/assets/social-card.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Muhammad Imran Shad — Senior React Native & Full-Stack Engineer. Lahore, Pakistan."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Imran Shad",
+        "jobTitle": "Senior React Native & Full-Stack Engineer",
+        "url": "https://imranshad.github.io/",
+        "email": "mailto:imran.shad@ymail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lahore",
+          "addressCountry": "PK"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/imranshad",
+          "https://github.com/imranshad"
+        ],
+        "knowsAbout": [
+          "React Native",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "Mobile architecture",
+          "OCR and AI integration"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Virtual University of Pakistan"
+          },
+          { "@type": "CollegeOrUniversity", "name": "Punjab University" }
+        ]
       }
-    })();
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Muhammad Imran Shad",
-    "jobTitle": "Senior Mobile Engineer",
-    "email": "mailto:imran.shad@ymail.com",
-    "telephone": "+92 313 387 4545",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Lahore",
-      "addressCountry": "PK"
-    },
-    "url": "https://imranshad.github.io/",
-    "sameAs": ["https://linkedin.com/in/imranshad"]
-  }
-  </script>
-</head>
-
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <strong>Muhammad Imran Shad</strong>
-        <span>iOS & React Native • Onboarding • Performance • Native Integrations</span>
-      </div>
-
-      <nav aria-label="Primary navigation">
-        <a class="pill" href="#projects">Projects</a>
-        <a class="pill" href="#skills">Skills</a>
-        <a class="pill" href="#experience">Experience</a>
-        <a class="pill" href="#contact">Contact</a>
-        <button id="themeBtn" class="pill primary" type="button" aria-label="Toggle theme">Toggle theme</button>
+    </script>
+  </head>
+  <body id="top">
+    <!-- Explicit list roles preserve markerless list semantics in Safari/VoiceOver. -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="#top" aria-label="Muhammad Imran Shad, back to top"
+        ><span class="monogram" aria-hidden="true">is.</span
+        ><span>Imran Shad</span></a
+      >
+      <nav aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact <span aria-hidden="true">↗</span></a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main id="main" class="wrap">
-    <div class="hero">
-      <div class="card left">
-        <h1>Senior Mobile Engineer</h1>
-        <p class="kicker">React Native / TypeScript • iOS (Swift/Obj-C) • Android (Kotlin/Java)</p>
-        <p class="lead">
-          I build high-quality mobile products with <strong>smooth onboarding</strong>, strong <strong>performance</strong>,
-          and pragmatic <strong>native iOS/Android integrations</strong>. My work spans feature delivery, code reviews,
-          testing, CI/CD, and release management.
-        </p>
-
-        <div class="cta">
-          <a class="pill primary" href="#projects">View projects</a>
-          <a class="pill" href="mailto:imran.shad@ymail.com">Email</a>
-          <a class="pill" href="https://linkedin.com/in/imranshad" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="pill" href="https://imranshad.github.io" target="_blank" rel="noreferrer">Website</a>
-          <!-- Optional: add your resume file in this repo and uncomment -->
-          <!-- <a class="pill" href="./resume.pdf" target="_blank" rel="noreferrer">Download resume</a> -->
-        </div>
-
-        <p style="margin:14px 0 0; color:var(--faint); font-size:13px;">
-          Note: These are commercial products. Source code is proprietary; details here are public and non-confidential.
-        </p>
-      </div>
-
-      <aside class="card meta" aria-label="Highlights">
-        <div class="stat">
-          <strong>8+ years</strong>
-          <span>Mobile engineering (React Native + native iOS/Android)</span>
-        </div>
-        <div class="stat">
-          <strong>Onboarding & reliability</strong>
-          <span>Multi-step flows, secure syncing, error/recovery handling</span>
-        </div>
-        <div class="stat">
-          <strong>Performance wins</strong>
-          <span>Startup/TTI, bundle size, rendering & crash reduction</span>
-        </div>
-      </aside>
-    </div>
-
-    <section id="projects">
-      <div class="section-title">
-        <h2>Featured projects</h2>
-        <p>Selected apps shipped to the App Store / Play Store</p>
-      </div>
-
-      <div class="grid">
-        <article class="card proj col-6">
-          <h3>Goally — Parent App</h3>
-          <div class="sub">Jun 2023 – Aug 2025 • iOS/Android</div>
-          <p>Behavioral therapy & routine-building app for parents of children with developmental challenges.</p>
-          <ul class="clean">
-            <li>Custom routines, real-time progress tracking, secure parent-child data syncing</li>
-            <li>In-app subscriptions (IAP)</li>
-            <li>Performance and UI improvements across core flows</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">MobX</span>
-            <span class="tag">React Navigation</span><span class="tag">REST APIs</span><span class="tag">Firebase</span>
-            <span class="tag">In-App Purchases</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://apps.apple.com/pk/app/goally/id1262461227" target="_blank" rel="noreferrer">App Store</a>
-          </div>
-        </article>
-
-        <article class="card proj col-6">
-          <h3>Pynwheel — Self Tour</h3>
-          <div class="sub">Sep 2020 – Jun 2023 • iOS</div>
-          <p>Self-guided apartment tours with location-aware flows and backend integration.</p>
-          <ul class="clean">
-            <li>Location-based features and secure check-in flows</li>
-            <li>Push notifications & deep linking</li>
-            <li>Multimedia content display</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Redux</span>
-            <span class="tag">Geolocation</span><span class="tag">Deep Linking</span><span class="tag">Firebase Messaging</span>
-            <span class="tag">REST APIs</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://apps.apple.com/us/app/self-tour/id1488907392" target="_blank" rel="noreferrer">App Store</a>
-          </div>
-        </article>
-
-        <article class="card proj col-6">
-          <h3>Pynwheel — Touch (Kiosk)</h3>
-          <div class="sub">Sep 2020 – Jun 2023 • Android (large-screen)</div>
-          <p>Touchscreen lobby/kiosk app optimized for large screens and offline kiosk environments.</p>
-          <ul class="clean">
-            <li>Interactive modules, map navigation, brochure displays</li>
-            <li>API-driven property data rendering</li>
-            <li>Offline caching for kiosk usage</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React Native</span><span class="tag">Context API</span><span class="tag">Redux</span>
-            <span class="tag">Offline Storage</span><span class="tag">Android Large-Screen</span><span class="tag">REST APIs</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://play.google.com/store/apps/details?id=com.pynwheel.touch" target="_blank" rel="noreferrer">Google Play</a>
-          </div>
-        </article>
-
-        <article class="card proj col-6">
-          <h3>Faith Journey</h3>
-          <div class="sub">Sep 2020 – Jun 2023 • iOS</div>
-          <p>Spiritual growth app with guided content, progress tracking, and daily activities.</p>
-          <ul class="clean">
-            <li>Content rendering and user progress modules</li>
-            <li>Offline support</li>
-            <li>Redesigned UI for better engagement</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React Native</span><span class="tag">Redux</span><span class="tag">React Navigation</span>
-            <span class="tag">Async Storage</span><span class="tag">REST APIs</span><span class="tag">Firebase</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://apps.apple.com/us/app/faithjourney/id1544431979" target="_blank" rel="noreferrer">App Store</a>
-          </div>
-        </article>
-
-        <article class="card proj col-6">
-          <h3>Amal — For Life</h3>
-          <div class="sub">May 2017 – Dec 2018 • iOS</div>
-          <p>Sustainability app encouraging waste reduction with community actions and rewards.</p>
-          <ul class="clean">
-            <li>Pickup reporting, tree tracking, bin requests, reporting to authorities</li>
-            <li>Rewards with Green Points</li>
-            <li>Notifications + backend integrations</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Redux</span>
-            <span class="tag">Firebase</span><span class="tag">Local Notifications</span><span class="tag">REST APIs</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://apps.apple.com/pk/app/amal-for-life/id1442826238" target="_blank" rel="noreferrer">App Store</a>
-          </div>
-        </article>
-
-        <article class="card proj col-6">
-          <h3>The Long Game (Unpublished)</h3>
-          <div class="sub">Wellness / longevity • iOS & Android</div>
-          <p>Gamified healthspan app turning wearable + lab data into a competitive score.</p>
-          <ul class="clean">
-            <li>Personalized TLG Score, leagues, progress tracking</li>
-            <li>Science-based nudges to improve sleep/recovery</li>
-            <li>HealthKit / Google Fit integrations</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Zustand</span>
-            <span class="tag">HealthKit</span><span class="tag">Google Fit</span>
-            <span class="tag">Firebase</span><span class="tag">Push Notifications</span>
-          </div>
-          <div class="links">
-            <span class="btn" aria-disabled="true" title="Unpublished app">Private build</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="section-title">
-        <h2>Skills</h2>
-        <p>Tooling and areas I work in most</p>
-      </div>
-
-      <div class="grid">
-        <div class="card proj col-6" style="min-height:auto">
-          <h3>Mobile engineering</h3>
-          <ul class="clean">
-            <li>React Native / Expo, TypeScript, React Navigation</li>
-            <li>State: Redux, MobX, Context API, Zustand</li>
-            <li>Offline-first: caching, sync, resilient error handling</li>
-            <li>App Store / Play Store releases, TestFlight</li>
-          </ul>
-        </div>
-
-        <div class="card proj col-6" style="min-height:auto">
-          <h3>Performance & quality</h3>
-          <ul class="clean">
-            <li>Profiling (Flipper/Hermes), startup & TTI improvements</li>
-            <li>Rendering optimization, memoization, bundle size reduction</li>
-            <li>Crash monitoring, logging, metrics</li>
-            <li>Testing: Jest, React Native Testing Library</li>
-          </ul>
-        </div>
-
-        <div class="card proj col-6" style="min-height:auto">
-          <h3>Native & integrations</h3>
-          <ul class="clean">
-            <li>iOS: Swift/Objective-C integration when needed</li>
-            <li>Android: Kotlin/Java + large-screen optimizations</li>
-            <li>SDKs: maps, camera, push notifications, analytics</li>
-            <li>Payments & subscriptions: In-App Purchases</li>
-          </ul>
-        </div>
-
-        <div class="card proj col-6" style="min-height:auto">
-          <h3>Delivery</h3>
-          <ul class="clean">
-            <li>CI/CD: GitHub Actions, Fastlane</li>
-            <li>Agile/Scrum, Jira, Figma collaboration</li>
-            <li>Code reviews, documentation, mentoring</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="section-title">
-        <h2>Experience</h2>
-        <p>Recent roles</p>
-      </div>
-
-      <div class="split">
-        <div class="card proj" style="min-height:auto">
-          <h3>Goally Co. — Senior Mobile Engineer</h3>
-          <div class="sub">Jun 2023 – Present</div>
-          <ul class="clean">
-            <li>Built features and UI for routines & progress tracking</li>
-            <li>Improved onboarding/first-run performance and stability</li>
-            <li>Helped shape engineering practices (reviews, CI checks)</li>
-          </ul>
-        </div>
-
-        <div class="card proj" style="min-height:auto">
-          <h3>Intagleo Systems (Pynwheel) — Senior Mobile Engineer</h3>
-          <div class="sub">Sep 2020 – Jun 2023</div>
-          <ul class="clean">
-            <li>Shipped Self Tour and Touch apps with offline-first patterns</li>
-            <li>Improved performance and accessibility</li>
-            <li>Automated releases with Fastlane + GitHub Actions</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Let’s build something great</p>
-      </div>
-
-      <div class="grid">
-        <div class="card proj col-12" style="min-height:auto">
-          <p style="margin:0 0 10px;">
-            <strong>Email:</strong> <a href="mailto:imran.shad@ymail.com">imran.shad@ymail.com</a> •
-            <strong>Phone:</strong> <a href="tel:+923133874545">+92 313 387 4545</a> •
-            <strong>Location:</strong> Lahore, Pakistan
+    <main id="main" tabindex="-1">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-top">
+          <p class="eyebrow">Muhammad Imran Shad</p>
+          <p class="location">
+            Lahore, Pakistan <span aria-hidden="true">↗</span>
           </p>
-
-          <div class="links">
-            <a class="btn" href="mailto:imran.shad@ymail.com">Email me</a>
-            <button class="btn" id="copyEmailBtn" type="button">Copy email</button>
-            <a class="btn" href="https://linkedin.com/in/imranshad" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="https://imranshad.github.io" target="_blank" rel="noreferrer">Website</a>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <h1 id="hero-title">
+              Senior <span class="accent">React Native</span> &amp; Full-Stack
+              Engineer<span class="accent">.</span>
+            </h1>
+            <p class="specialties">
+              TypeScript <span>·</span> Node.js <span>·</span> Mobile
+              Architecture <span>·</span> AI Integrations
+            </p>
+          </div>
+          <div class="hero-intro">
+            <p class="lead">
+              I build production mobile and full-stack products—from React
+              Native applications and Node.js backends to practical AI-powered
+              workflows.
+            </p>
+            <p>
+              From architecture and implementation to performance, releases, and
+              production support, I take care of the work that makes a product
+              work.
+            </p>
+            <div class="actions">
+              <a class="button" href="#work"
+                >View selected work <span aria-hidden="true">↓</span></a
+              ><a class="text-link" href="mailto:imran.shad@ymail.com"
+                >Get in touch <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <p class="availability">
+              <span class="status-dot" aria-hidden="true"></span>Open to remote
+              opportunities and relocation.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <footer>
-      <div>© <span id="year"></span> Muhammad Imran Shad • Built as a single-file static site for GitHub Pages.</div>
+      <section class="impact wrap" aria-labelledby="impact-title">
+        <h2 id="impact-title" class="eyebrow">
+          Experience, with measurable impact
+        </h2>
+        <dl class="metrics">
+          <div>
+            <dt>Years of experience</dt>
+            <dd>9+</dd>
+            <dd class="attribution">Mobile &amp; full-stack engineering</dd>
+          </div>
+          <div>
+            <dt>Less analytics computation time</dt>
+            <dd>37<span>%</span></dd>
+            <dd class="attribution">Goally Co.</dd>
+          </div>
+          <div>
+            <dt>Lower React Native load times</dt>
+            <dd>40<span>%</span></dd>
+            <dd class="attribution">Intagleo Systems</dd>
+          </div>
+          <div>
+            <dt>Fewer crashes</dt>
+            <dd><span>≈</span>50<span>%</span></dd>
+            <dd class="attribution">Intagleo Systems</dd>
+          </div>
+          <div>
+            <dt>Engineers led</dt>
+            <dd>4</dd>
+            <dd class="attribution">Intagleo Systems</dd>
+          </div>
+        </dl>
+      </section>
+
+      <div id="projects" class="legacy-anchor"></div>
+      <section id="work" class="section wrap" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / Selected work</p>
+            <h2 id="work-title">Built for everyday use.</h2>
+          </div>
+          <p>
+            Mobile products, the backends behind them,<br
+              class="desktop-only"
+            />
+            and AI that serves a clear purpose.
+          </p>
+        </div>
+        <article class="project" aria-labelledby="goally-title">
+          <div class="project-identity">
+            <span class="project-number">01</span>
+            <div>
+              <p class="eyebrow">Family routines · iOS &amp; Android</p>
+              <h3 id="goally-title">Goally</h3>
+              <p class="project-role">
+                Mobile engineering &amp; backend ownership
+              </p>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Helping families build routines and support their children’s
+              independence.
+            </p>
+            <p>
+              I developed and maintained the production React Native app and
+              designed and built its complete Node.js, Express.js, and MongoDB
+              backend, including REST APIs, business logic, data workflows, and
+              integrations.
+            </p>
+            <ul class="tags" role="list">
+              <li>React Native</li>
+              <li>TypeScript</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>MongoDB</li>
+            </ul>
+            <details>
+              <summary>
+                My delivery scope <span class="sr-only">on Goally</span>
+              </summary>
+              <div class="detail-content">
+                <p>
+                  I worked across mobile architecture, navigation, state
+                  management, native integrations, testing, CI/CD, and App Store
+                  and Google Play releases. I also handled performance work,
+                  debugging, and ongoing production support.
+                </p>
+                <p>
+                  During my Goally employment, I refactored analytics logic to
+                  reduce computation time by 37%. This is an employer-level
+                  result across my work there.
+                </p>
+              </div>
+            </details>
+            <div class="project-links">
+              <a href="https://apps.apple.com/pk/app/goally/id1262461227"
+                >Goally on App Store <span aria-hidden="true">↗</span></a
+              ><a
+                href="https://play.google.com/store/apps/details?id=com.mygoally.mygoally"
+                >Goally on Google Play <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </article>
+        <article class="project" aria-labelledby="tlg-title">
+          <div class="project-identity">
+            <span class="project-number">02</span>
+            <div>
+              <p class="eyebrow">Healthspan · iOS &amp; Android</p>
+              <h3 id="tlg-title">The Long Game</h3>
+              <p class="project-role">Mobile, backend &amp; AI integration</p>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Bringing health data into a product people can use to understand
+              their progress.
+            </p>
+            <p>
+              I delivered production React Native applications for iOS and
+              Android and built the complete Node.js, Express.js, and MongoDB
+              backend. I also implemented a lab-report workflow that connects
+              OCR extraction with AI-agent processing and user-facing results.
+            </p>
+            <ul class="tags" role="list">
+              <li>React Native</li>
+              <li>TypeScript</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>MongoDB</li>
+              <li>OCR + AI</li>
+            </ul>
+            <details>
+              <summary>
+                My delivery scope <span class="sr-only">on The Long Game</span>
+              </summary>
+              <div class="detail-content">
+                <p>
+                  My work covered architecture, APIs, business logic, data
+                  workflows, third-party integrations, testing, store releases,
+                  and production support. The lab-report integration connects a
+                  user’s upload to extracted information, AI processing, and
+                  meaningful results in the application.
+                </p>
+                <a class="text-link" href="#ai-work"
+                  >Explore the lab-report workflow
+                  <span aria-hidden="true">↓</span></a
+                >
+              </div>
+            </details>
+            <div class="project-links">
+              <a
+                href="https://apps.apple.com/us/app/the-long-game-healthspan/id6748027793"
+                >The Long Game on App Store <span aria-hidden="true">↗</span></a
+              ><a
+                href="https://play.google.com/store/apps/details?id=com.thelonggame"
+                >The Long Game on Google Play
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </article>
+        <article class="project" aria-labelledby="pynwheel-title">
+          <div class="project-identity">
+            <span class="project-number">03</span>
+            <div>
+              <p class="eyebrow">Property experiences · Mobile &amp; kiosk</p>
+              <h3 id="pynwheel-title">
+                Pynwheel<br />
+                Tour &amp; Touch
+              </h3>
+              <p class="project-role">React Native engineering · Intagleo</p>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Self-guided apartment tours and interactive property experiences.
+            </p>
+            <p>
+              I worked on React Native architecture, TypeScript, Redux/MobX,
+              REST APIs, and native integrations across Pynwheel Tour and Touch.
+              My delivery scope included iOS and Android releases, performance
+              optimization, and production debugging.
+            </p>
+            <ul class="tags" role="list">
+              <li>React Native</li>
+              <li>TypeScript</li>
+              <li>Redux / MobX</li>
+              <li>REST APIs</li>
+              <li>Native integrations</li>
+            </ul>
+            <details>
+              <summary>
+                Engineering &amp; leadership
+                <span class="sr-only">at Intagleo</span>
+              </summary>
+              <div class="detail-content">
+                <p>
+                  At Intagleo, I led four engineers, reviewed code, and mentored
+                  developers. My work there reduced React Native load times by
+                  40% and crashes by approximately 50%; these results are
+                  attributed to my Intagleo employment.
+                </p>
+                <p>
+                  I also contributed to separate MERN projects for other
+                  Intagleo clients. That backend work was separate from
+                  Pynwheel.
+                </p>
+              </div>
+            </details>
+            <div class="project-links">
+              <a href="https://apps.apple.com/us/app/self-tour/id1488907392"
+                >Self Tour on App Store <span aria-hidden="true">↗</span></a
+              ><a
+                href="https://play.google.com/store/apps/details?id=com.pynwheel.touch"
+                >Touch on Google Play <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </article>
+        <article class="project project-compact" aria-labelledby="paxai-title">
+          <div class="project-identity">
+            <span class="project-number">04</span>
+            <div>
+              <p class="eyebrow">AI evaluation · Web</p>
+              <h3 id="paxai-title">PaxAI</h3>
+              <p class="project-role">Web &amp; backend contribution</p>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Contributing to an AI evaluation platform.
+            </p>
+            <p>
+              I contributed React and Node.js work to the PaxAI evaluation
+              platform, extending my web and backend experience into an AI
+              product.
+            </p>
+            <ul class="tags" role="list">
+              <li>React</li>
+              <li>Node.js</li>
+            </ul>
+          </div>
+        </article>
+        <p class="work-note">
+          Commercial source code is proprietary. These summaries describe
+          public, non-confidential work.
+        </p>
+        <details class="additional-work">
+          <summary>More released work</summary>
+          <div class="project-links">
+            <a href="https://apps.apple.com/us/app/faithjourney/id1544431979"
+              >FaithJourney on App Store <span aria-hidden="true">↗</span></a
+            ><a href="https://apps.apple.com/pk/app/amal-for-life/id1442826238"
+              >Amal For Life on App Store <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </details>
+      </section>
+
+      <section id="ai-work" class="ai-section" aria-labelledby="ai-title">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / Practical AI integration</p>
+              <h2 id="ai-title">
+                From a lab report<br />to useful information.
+              </h2>
+            </div>
+            <div>
+              <p class="ai-product">The Long Game</p>
+              <p>
+                I implemented the workflow that connects lab-report uploads,
+                OCR, and an AI agent to meaningful results in the product.
+              </p>
+            </div>
+          </div>
+          <ol class="workflow" role="list">
+            <li>
+              <span class="step-number" aria-hidden="true"
+                >01 <span>→</span></span
+              >
+              <h3>Upload</h3>
+              <p>A user uploads a lab report.</p>
+            </li>
+            <li>
+              <span class="step-number" aria-hidden="true"
+                >02 <span>→</span></span
+              >
+              <h3>Extract</h3>
+              <p>OCR extracts information from the report.</p>
+            </li>
+            <li>
+              <span class="step-number" aria-hidden="true"
+                >03 <span>→</span></span
+              >
+              <h3>Process</h3>
+              <p>An AI agent processes the extracted information.</p>
+            </li>
+            <li>
+              <span class="step-number" aria-hidden="true"
+                >04 <span>↗</span></span
+              >
+              <h3>Present</h3>
+              <p>The application presents meaningful user-facing results.</p>
+            </li>
+          </ol>
+          <p class="ai-closing">
+            My focus: connecting the mobile experience, backend workflow, and AI
+            integration into a working product.
+          </p>
+        </div>
+      </section>
+
+      <div id="skills" class="legacy-anchor"></div>
+      <section
+        id="expertise"
+        class="section wrap"
+        aria-labelledby="expertise-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / Expertise</p>
+            <h2 id="expertise-title">
+              Mobile at the core.<br />Ownership across the stack.
+            </h2>
+          </div>
+          <p>
+            I bring the same care to the interface,<br class="desktop-only" />
+            the API, and the release.
+          </p>
+        </div>
+        <div class="expertise-grid">
+          <article>
+            <span class="expertise-number" aria-hidden="true">01 /</span>
+            <h3>Mobile engineering</h3>
+            <p>
+              Production applications for iOS and Android, with architecture and
+              performance built into the work.
+            </p>
+            <ul>
+              <li>React Native, TypeScript, JavaScript</li>
+              <li>Redux, Redux Toolkit, MobX</li>
+              <li>Native integrations using Swift and Java</li>
+              <li>Navigation, performance &amp; production debugging</li>
+            </ul>
+          </article>
+          <article>
+            <span class="expertise-number" aria-hidden="true">02 /</span>
+            <h3>Web &amp; backend engineering</h3>
+            <p>
+              From React interfaces to the APIs, business logic, and data
+              workflows behind a product.
+            </p>
+            <ul>
+              <li>React, Node.js, Express.js, MongoDB / MERN</li>
+              <li>REST APIs and GraphQL</li>
+              <li>Firebase and AWS Amplify</li>
+              <li>Third-party integrations &amp; production support</li>
+            </ul>
+          </article>
+          <article>
+            <span class="expertise-number" aria-hidden="true">03 /</span>
+            <h3>Practical AI integrations</h3>
+            <p>
+              Applied AI experience grounded in features I have helped deliver.
+            </p>
+            <ul>
+              <li>Lab-report OCR and AI-agent integration in The Long Game</li>
+              <li>Connecting uploads, processing, and user-facing results</li>
+              <li>
+                React and Node.js contribution to PaxAI’s evaluation platform
+              </li>
+            </ul>
+          </article>
+          <article>
+            <span class="expertise-number" aria-hidden="true">04 /</span>
+            <h3>Quality, delivery &amp; leadership</h3>
+            <p>
+              Taking work through review, testing, release, and the realities of
+              production.
+            </p>
+            <ul>
+              <li>Jest, testing &amp; code reviews</li>
+              <li>GitHub Actions, Fastlane &amp; CI/CD</li>
+              <li>App Store and Google Play releases</li>
+              <li>Architecture, mentoring &amp; team leadership</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="experience"
+        class="section experience-section wrap"
+        aria-labelledby="experience-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">04 / Experience</p>
+            <h2 id="experience-title">A track record of delivery.</h2>
+          </div>
+          <p>
+            9+ years of building, improving,<br class="desktop-only" />
+            and supporting software.
+          </p>
+        </div>
+        <ol class="timeline" role="list">
+          <li>
+            <p class="dates">
+              <time datetime="2023-06">June 2023</time> –
+              <time datetime="2026-09">September 2026</time>
+            </p>
+            <div>
+              <h3>Goally Co.</h3>
+              <p class="role">
+                Senior Software Engineer — Full-Stack (MERN) &amp; React Native
+              </p>
+              <p>
+                I developed and maintained Goally and The Long Game for iOS and
+                Android, and designed and developed their complete Node.js,
+                Express.js, and MongoDB backends.
+              </p>
+              <p>
+                I delivered APIs, business logic, data workflows, integrations,
+                and production support, alongside mobile architecture, testing,
+                CI/CD, store releases, and performance work.
+              </p>
+              <p class="outcome">
+                Refactored analytics logic, reducing computation time by 37%.
+              </p>
+            </div>
+          </li>
+          <li>
+            <p class="dates">
+              <time datetime="2020-09">September 2020</time> –
+              <time datetime="2023-06">June 2023</time>
+            </p>
+            <div>
+              <h3>Intagleo Systems</h3>
+              <p class="role">
+                React Native development · Pynwheel Tour &amp; Touch
+              </p>
+              <p>
+                I worked on mobile architecture, TypeScript, Redux/MobX, APIs,
+                native integrations, performance, debugging, and iOS/Android
+                delivery. I led a four-engineer team, conducted code reviews,
+                and mentored developers.
+              </p>
+              <p>
+                I also contributed to separate MERN projects for other clients.
+              </p>
+              <p class="outcome">
+                Reduced React Native load times by 40% and crashes by
+                approximately 50%.
+              </p>
+            </div>
+          </li>
+          <li>
+            <p class="dates">
+              <time datetime="2020-03">March 2020</time> –
+              <time datetime="2020-09">September 2020</time>
+            </p>
+            <div>
+              <h3>Tatbeeq Soft</h3>
+              <p>
+                I worked with React Native, reusable components, Redux Toolkit,
+                and API integrations, alongside releases, production support,
+                and mentoring.
+              </p>
+            </div>
+          </li>
+          <li>
+            <p class="dates">
+              <time datetime="2018-12">December 2018</time> –
+              <time datetime="2020-03">March 2020</time>
+            </p>
+            <div>
+              <h3>Instant Technologies</h3>
+              <p>
+                I developed React Native features and API integrations, worked
+                on state management, performance, and debugging, and
+                collaborated with QA.
+              </p>
+            </div>
+          </li>
+          <li>
+            <p class="dates">
+              <time datetime="2017-05">May 2017</time> –
+              <time datetime="2018-12">December 2018</time>
+            </p>
+            <div>
+              <h3>Dr Tech</h3>
+              <p>
+                I built React Native features and fixes with Redux for iOS and
+                Android, and contributed to testing, performance, and responsive
+                interfaces.
+              </p>
+            </div>
+          </li>
+        </ol>
+        <div class="education">
+          <h3>Education</h3>
+          <div>
+            <h4>Master of Computer Science</h4>
+            <p>Virtual University of Pakistan · 2014–2017</p>
+          </div>
+          <div>
+            <h4>Bachelor of Computer Science</h4>
+            <p>Punjab University · 2012–2014</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        class="contact-section"
+        aria-labelledby="contact-title"
+      >
+        <div class="wrap">
+          <p class="eyebrow">05 / Let’s talk</p>
+          <div class="contact-grid">
+            <div>
+              <h2 id="contact-title">Have a product<br />in mind?</h2>
+              <p>
+                I’m open to conversations about React Native,<br
+                  class="desktop-only"
+                />
+                full-stack engineering, and practical AI integrations.
+              </p>
+            </div>
+            <div class="contact-details">
+              <a class="email-link" href="mailto:imran.shad@ymail.com"
+                >imran.shad@ymail.com <span aria-hidden="true">↗</span></a
+              >
+              <p>Open to remote opportunities and relocation.</p>
+              <p>Lahore, Pakistan</p>
+              <div class="contact-links">
+                <a href="https://linkedin.com/in/imranshad"
+                  >LinkedIn <span aria-hidden="true">↗</span></a
+                ><a href="https://github.com/imranshad"
+                  >GitHub <span aria-hidden="true">↗</span></a
+                ><a href="tel:+923133874545">+92&nbsp;313&nbsp;387&nbsp;4545</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="wrap">
+      <p>© 2026 Muhammad Imran Shad</p>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </footer>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    document.getElementById("themeBtn").addEventListener("click", function(){
-      const root = document.documentElement;
-      const current = root.getAttribute("data-theme") || "dark";
-      const next = current === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-    });
-
-    document.getElementById("copyEmailBtn").addEventListener("click", async function(){
-      const email = "imran.shad@ymail.com";
-      try{
-        await navigator.clipboard.writeText(email);
-        const old = this.textContent;
-        this.textContent = "Copied ✓";
-        setTimeout(()=>this.textContent = old, 1200);
-      }catch(e){
-        prompt("Copy email:", email);
-      }
-    });
-  </script>
-</body>
+  </body>
 </html>
